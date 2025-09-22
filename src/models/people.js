@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
       })
 
       People.hasMany(models.License, {
-        foreignKey: 'student_id'
+        foreignKey: 'student_id',
+        scope: { status: 'matriculado' },
+        as: 'licensesClasses'
       })
     }
   }

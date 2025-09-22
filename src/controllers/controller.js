@@ -22,7 +22,7 @@ class Controller {
     }
   }
 
-  async createUser(req, res){
+  async create(req, res){
     const createdUser = req.body
     try {
       const createdRecord = await this.entityService.createUser(createdUser)
@@ -32,7 +32,7 @@ class Controller {
     }
   }
 
-  async updateUser(req, res) {
+  async update(req, res) {
       const { id } = req.params
       const updatedData = req.body
     try {
@@ -46,7 +46,7 @@ class Controller {
     }
   }
 
-  async deleteUser(req, res){
+  async delete(req, res){
       const { id } = req.params
     try {
       const isDeleted = await this.entityService.deleteRecords(Number(id))

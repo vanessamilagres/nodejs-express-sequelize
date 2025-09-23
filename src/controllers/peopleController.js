@@ -14,7 +14,7 @@ class PeopleController extends Controller {
       const licensesList = await peopleServices.getLicensesByStudent(Number(studentId))
       return res.status(200).json(licensesList)
     } catch (error) {
-      
+      return res.status(500).json({ message: 'Licenses not found' })
     }
   }
 }

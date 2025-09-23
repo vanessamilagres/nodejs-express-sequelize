@@ -8,7 +8,7 @@ class Controller {
       const allRecords = await this.entityService.getAllRecords()
       return res.status(200).json(allRecords)
     } catch (error) {
-      return res.status(500).json({ error: 'Failed to fetch records' })
+      return res.status(500).json({ message: 'Records not found' })
     }
   }
 
@@ -28,7 +28,7 @@ class Controller {
       const createdRecord = await this.entityService.createUser(createdUser)
       return res.status(200).json(createdRecord)
     } catch (error) {
-      
+      return res.status(500).json({ message: 'Unable to create' })
     }
   }
 
@@ -42,7 +42,7 @@ class Controller {
       }
       return res.status(200).json({ message: 'Sucessfully updated' })
     } catch (error) {
-      
+      return res.status(500).json({ message: 'Unable to update' })
     }
   }
 
@@ -52,7 +52,7 @@ class Controller {
       const isDeleted = await this.entityService.deleteRecords(Number(id))
       return res.status(200).json({ message: 'Sucessfully deleted' })
     } catch (error) {
-      return res.status(500).json(error.message)
+      return res.status(500).json({ message: 'Unable to delete' })
     }
   }
 }
